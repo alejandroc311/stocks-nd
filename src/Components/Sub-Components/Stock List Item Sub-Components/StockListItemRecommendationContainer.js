@@ -1,8 +1,8 @@
 function StockListItemRecommendationContainer(props){
     return(
-        <div className="col-2">
+        <div className="col-auto d-flex justify-content-start align-items-center">
             <div className="text-center">
-                {props.stockRecommendation}
+               Tip: {props.stockRecommendation}
             </div>
         </div>
     );

@@ -4,7 +4,12 @@
 }
 body{
   white-space: nowrap;
-  overflow: hidden;
+  overflow-x: hidden;
+  font-size: 0.779rem!important;
+}
+
+ul{
+  list-style-type: none;
 }
 
 .container{

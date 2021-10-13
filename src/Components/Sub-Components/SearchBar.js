@@ -7,7 +7,7 @@ function SearchBar(props){
     return(
         <div className="row">
             <div className="col-xl-4 offset-xl-4 col-6 offset-3">
-                <label for="stockTickerSearchInput" className="form-label">Stock Symbol</label>
+                <label htmlFor="stockTickerSearchInput" className="form-label">Stock Symbol</label>
                 <input value={props.userInput} onChange={handleUserInput} name="stockTickerSearchInput" type="input" className="form-control" id="stockTickerSearchInput" aria-describedby="stockTickerSearchInputTip" placeholder="Enter ticker/symbol here ..."></input>
                 <div id="stockTickerSearchInputTip" className="form-text">Ex: AAPL, MSFT </div>
             </div>

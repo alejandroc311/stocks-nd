@@ -2,6 +2,7 @@ import StockListItemNameContainer from "./Stock List Item Sub-Components/StockLi
 import StockListItemTickerContainer from "./Stock List Item Sub-Components/StockListItemTickerContainer";
 import StockListItemDEContainer from "./Stock List Item Sub-Components/StockListItemDEContainer";
 import StockListItemRecommendationContainer from "./Stock List Item Sub-Components/StockListItemRecommendationContainer";
+
 function StockListItem(props){
     return(
         <div className="card border-0">
@@ -10,7 +11,6 @@ function StockListItem(props){
                <StockListItemNameContainer stockName={props.stockName}/>
                <StockListItemDEContainer stockDE={props.stockDE}/>
                <StockListItemRecommendationContainer stockRecommendation={props.stockRecommendation}/>
-
             </div>
         </div>
     );

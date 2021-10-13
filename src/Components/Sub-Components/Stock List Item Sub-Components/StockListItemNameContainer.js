@@ -1,8 +1,8 @@
 function StockListItemNameContainer(props){
     return(
-        <div className="col-6 d-flex justify-content-start align-items-center">
+        <div className="col-auto d-flex justify-content-start align-items-center">
                 <div className="text-center">
-                    {props.stockName}
+                    ${props.stockName}
                 </div> 
             
         </div>
