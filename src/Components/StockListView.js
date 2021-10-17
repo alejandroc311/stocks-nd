@@ -1,22 +1,26 @@
 import StockListItem from "./Sub-Components/StockListItem";
-import StockListItemModal from "./Sub-Components/Stock List Item Sub-Components/StockListItemModal";
-import StockListItemSeeMoreButton from "./Sub-Components/Stock List Item Sub-Components/StockListItemSeeMoreButton";
-import StockListItemRemoveButton from "./Sub-Components/Stock List Item Sub-Components/StockListItemRemoveButton";
+import StockListItemModal from "./Sub-Components/StockListItemModal";
+import StockListItemSeeMoreButton from "./Sub-Components/StockListItem Sub-Components/StockListItemSeeMoreButton";
+import StockListItemRemoveButton from "./Sub-Components/StockListItem Sub-Components/StockListItemRemoveButton";
 function StockListView(props){
-    var stocksList = props.stockList;
-    return(stocksList.map((stock) => {
+    function handleRemoveClick(name){
+        props.onRemoveClick(name)
+    }
+    const {stockList} = props;
+    return(stockList.map((stock) => {
+        const {price: {symbol:ticker}} = stock;
         return(
-            <div className="container" key={stock.ticker} id={stock.ticker}>
+            <div className="container" key={ticker} id={ticker}>
                 <div className="row border border-2 rounded-pill p-1">
                     <div className="col-10">
-                        <StockListItem stockTicker={stock.ticker} stockName={stock.name} stockDE={stock.debtToEquity} stockRecommendation={stock.recommendation}/>
-                        <StockListItemModal modalId={stock.ticker} stockName={stock.longName} totalCash={stock.totalCash} totalDebt={stock.totalDebt} grossProfits={stock.grossProfit} totalRevenue={stock.grossRevenue} operatingCashflow={stock.operatingCashflow} freeCashflow={stock.freeCashflow} />
+                        <StockListItem {...stock}/>
+                        <StockListItemModal {...stock}/>
                     </div>
                     <div className="col-1 d-flex justify-content-end align-items-center">
-                        <StockListItemSeeMoreButton modalTargetId={stock.ticker}/>
+                        <StockListItemSeeMoreButton modalTargetId={ticker}/>
                     </div>
                     <div className="col-1 d-flex justify-content-end align-items-center">
-                        <StockListItemRemoveButton onRemoveClick={props.onRemoveClick} removeButtonName={stock.ticker}/>
+                        <StockListItemRemoveButton onRemoveClick={handleRemoveClick} removeButtonName={ticker}/>
                     </div>
                 </div>
             </div>
@@ -24,7 +28,5 @@ function StockListView(props){
         
     })
     );
-    
 }
-
 export default StockListView;

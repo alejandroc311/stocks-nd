@@ -1,16 +1,17 @@
-import StockListItemNameContainer from "./Stock List Item Sub-Components/StockListItemNameContainer";
-import StockListItemTickerContainer from "./Stock List Item Sub-Components/StockListItemTickerContainer";
-import StockListItemDEContainer from "./Stock List Item Sub-Components/StockListItemDEContainer";
-import StockListItemRecommendationContainer from "./Stock List Item Sub-Components/StockListItemRecommendationContainer";
+import StockListItemNameContainer from "./StockListItem Sub-Components/StockListItemNameContainer";
+import StockListItemTickerContainer from "./StockListItem Sub-Components/StockListItemTickerContainer";
+import StockListItemDEContainer from "./StockListItem Sub-Components/StockListItemDEContainer";
+import StockListItemRecommendationContainer from "./StockListItem Sub-Components/StockListItemRecommendationContainer";
 
 function StockListItem(props){
+    const {financialData: {recommendationKey, debtToEquity, currentPrice, }, price: {symbol: ticker}} = props;
     return(
         <div className="card border-0">
             <div className="row align-items-center">
-               <StockListItemTickerContainer stockTicker={props.stockTicker}/>
-               <StockListItemNameContainer stockName={props.stockName}/>
-               <StockListItemDEContainer stockDE={props.stockDE}/>
-               <StockListItemRecommendationContainer stockRecommendation={props.stockRecommendation}/>
+               <StockListItemTickerContainer stockTicker={ticker}/>
+               <StockListItemNameContainer stockName={currentPrice}/>
+               <StockListItemDEContainer stockDE={debtToEquity}/>
+               <StockListItemRecommendationContainer stockRecommendation={recommendationKey.toUpperCase()}/>
             </div>
         </div>
     );
