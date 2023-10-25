@@ -1,7 +1,3 @@
-# Project Description
-
-This project is an off-shoot/extra-credit from the React's Documentation "Thinking in React" and Udemy's React Nanodegree's "Contacts" exercise. This is my attempt at adhering to the Single Responsibility Principle and Component/Function composition. 
-
 ## What it does ... 
 
 In the search bar, the user can input a stock's ticker/symbol and the app will render a list view that itself is a just an accumulation of list items. Each list item contains the stock's ticker, it's current price, it's debt/equity ratio and a buy/sell/hold recommendation. All of this information is fetched from yahoo-finance's API. 
